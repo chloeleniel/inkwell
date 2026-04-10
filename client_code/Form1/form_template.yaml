@@ -29,6 +29,10 @@ components:
   name: headline_2
   properties: {role: headline, text: Inkwell}
   type: Label
+- layout_properties: {slot: left-nav}
+  name: column_panel_1
+  properties: {}
+  type: ColumnPanel
 container:
   properties: {html: '@theme:standard-page.html', visible: true}
   type: HtmlTemplate
