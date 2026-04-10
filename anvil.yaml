@@ -1,4 +1,18 @@
 allow_embedding: false
+db_schema:
+  table_1:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      client_hidden: false
+      name: Writing Stage
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      client_hidden: false
+      name: Text
+      type: string
+    server: full
+    title: Table 1
 name: Inkwell
 package_name: Inkwell
 runtime_options:
