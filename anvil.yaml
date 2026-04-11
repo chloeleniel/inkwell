@@ -1,5 +1,10 @@
 allow_embedding: false
 db_schema:
+  articles:
+    client: none
+    columns: []
+    server: full
+    title: Articles
   table_1:
     client: none
     columns:
@@ -13,6 +18,36 @@ db_schema:
       type: string
     server: full
     title: Table 1
+  users:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      client_hidden: false
+      name: email
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      client_hidden: false
+      name: enabled
+      type: bool
+    - admin_ui: {order: 2, width: 200}
+      client_hidden: false
+      name: last_login
+      type: datetime
+    - admin_ui: {order: 3, width: 200}
+      client_hidden: false
+      name: password_hash
+      type: string
+    - admin_ui: {order: 4, width: 200}
+      client_hidden: false
+      name: n_password_failures
+      type: number
+    - admin_ui: {order: 5, width: 200}
+      client_hidden: false
+      name: confirmed_email
+      type: bool
+    server: full
+    title: Users
+metadata: {description: '', title: Inkwell}
 name: Inkwell
 package_name: Inkwell
 runtime_options:
@@ -24,4 +59,10 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/tables.yml
+- client_config: {allow_signup: false, confirm_email: true, enable_automatically: true, require_secure_passwords: true, use_email: true, use_google: true}
+  server_config: {user_table: users}
+  source: /runtime/services/anvil/users.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/google.yml
 startup_form: Form1
