@@ -40,9 +40,10 @@ components:
     name: parchment
     properties: {text: Parchment}
     type: Button
-  - layout_properties: {grid_position: 'QFAUJM,FMBUFT'}
-    name: button_3
-    properties: {text: button_3}
+  - event_bindings: {}
+    layout_properties: {grid_position: 'QFAUJM,FMBUFT'}
+    name: feedback
+    properties: {text: Feedback}
     type: Button
   layout_properties: {slot: left-nav}
   name: column_panel_1
