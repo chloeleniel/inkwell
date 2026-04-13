@@ -13,6 +13,27 @@ db_schema:
       type: string
     server: full
     title: Articles
+  feedback:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      client_hidden: false
+      name: name
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      client_hidden: false
+      name: writing_mode
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      client_hidden: false
+      name: feedback
+      type: string
+    - admin_ui: {order: 3, width: 200}
+      client_hidden: false
+      name: created
+      type: datetime
+    server: full
+    title: feedback
 metadata: {description: '', title: Inkwell}
 name: Inkwell
 package_name: Inkwell

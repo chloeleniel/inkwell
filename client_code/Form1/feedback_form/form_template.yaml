@@ -5,29 +5,34 @@ components:
     properties: {bold: true, text: Feedback Form, underline: true}
     type: Label
   - layout_properties: {grid_position: 'VGZSQU,CMOCUO'}
-    name: label_2
-    properties: {text: 'Name:'}
+    name: q1
+    properties: {text: Name}
     type: Label
   - layout_properties: {grid_position: 'VGZSQU,KMCGDH'}
-    name: text_box_1
+    name: name
     properties: {}
     type: TextBox
   - layout_properties: {grid_position: 'QUIVPX,CHJKLW'}
-    name: label_3
+    name: q2
     properties: {text: 'What do you usually write?'}
     type: Label
   - layout_properties: {grid_position: 'QUIVPX,MHPPCQ'}
-    name: text_box_2
+    name: writing_mode
     properties: {}
     type: TextBox
   - layout_properties: {grid_position: 'GAXZLF,YMTLZV'}
-    name: label_4
+    name: q3
     properties: {text: 'What did you think of this site?'}
     type: Label
   - layout_properties: {grid_position: 'GAXZLF,EAVUIL'}
-    name: text_box_3
+    name: feedback
     properties: {}
     type: TextBox
+  - event_bindings: {}
+    layout_properties: {grid_position: 'NXGKAC,TSAYLO'}
+    name: submit_button
+    properties: {enabled: true, text: submit}
+    type: Button
   layout_properties: {slot: default}
   name: content_panel
   properties: {}
@@ -50,7 +55,7 @@ components:
     properties: {text: parchment}
     type: Button
   - layout_properties: {grid_position: 'NEOAMO,UDINSJ'}
-    name: feedback
+    name: feedback_page
     properties: {text: feedback}
     type: Button
   layout_properties: {slot: left-nav}

@@ -7,8 +7,20 @@ from anvil.tables import app_tables
 
 
 class parchment_page(parchment_pageTemplate):
-  def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
-    self.init_components(**properties)
+    def __init__(self, **properties):
+      self.init_components(**properties)
 
-    # Any code you write here will run before the form opens.
+    @handle("home", "click")
+    def home_click(self, **event_args):
+      open_form("Form1")
+      pass
+
+    @handle("parchment", "click")
+    def parchment_click(self, **event_args):
+      open_form("Form1.parchment_page")
+      pass
+
+    @handle("feedback", "click")
+    def feedback_click(self, **event_args):
+      open_form("Form1.feedback_form")
+      pass

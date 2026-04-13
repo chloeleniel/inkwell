@@ -22,8 +22,8 @@ class Form1(Form1Template):
 
   @handle("feedback", "click")
   def feedback_click(self, **event_args):
-   open_form("Form1.feedback_form")
-   pass
+    open_form("Form1.feedback_form")
+    pass
 
 
   stages = ["prewriting", "drafting", "revising"]
