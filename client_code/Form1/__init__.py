@@ -16,7 +16,7 @@ class Form1(Form1Template):
     pass
 
   @handle("parchment", "click")
-  def home_click(self, **event_args):
+  def parchment_click(self, **event_args):
     open_form("Form1.parchment_page")
     pass
 
