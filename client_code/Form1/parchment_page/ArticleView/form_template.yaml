@@ -1,0 +1,20 @@
+components:
+- components:
+  - data_bindings:
+    - {code: 'self.item[''title'']', property: text, writeback: false}
+    layout_properties: {grid_position: 'XCVKEG,LZFVFA'}
+    name: title_label
+    properties: {role: headline}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''content'']', property: text, writeback: false}
+    layout_properties: {grid_position: 'LECQJJ,EBKBSA'}
+    name: content_label
+    properties: {bold: true, italic: false}
+    type: Label
+  layout_properties: {grid_position: 'SBUHJT,HTEAGP'}
+  name: column_panel_1
+  properties: {role: card}
+  type: ColumnPanel
+container: {type: ColumnPanel}
+is_package: true

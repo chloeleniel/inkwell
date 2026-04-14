@@ -1,25 +1,14 @@
-from ._anvil_designer import parchment_pageTemplate
+from ._anvil_designer import ArticleEditTemplate
 from anvil import *
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from .ArticleEdit import ArticleEdit
 
 
-class parchment_page(parchment_pageTemplate):
-    def __init__(self, **properties):
-      self.init_components(**properties)
-
-    @handle("home", "click")
-    def home_click(self, **event_args):
-      open_form("Form1")
-      pass
-
-    @handle("feedback", "click")
-    def feedback_click(self, **event_args):
-      open_form("Form1.feedback_form")
-      pass
+class ArticleEdit(ArticleEditTemplate):
+  def __init__(self, **properties):
+    self.init_components(**properties)
 
     @handle("add_article_button", "click")
     def add_article_button_click(self, **event_args):
@@ -34,7 +23,4 @@ class parchment_page(parchment_pageTemplate):
       if save_clicked:
         anvil.server.call('add_article', new_article)
         self.refresh_articles()
-
-    def refresh_articles(self):
-      self.articles_panel.items = anvil.server.call('get_articles')
 

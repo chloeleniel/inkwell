@@ -6,7 +6,10 @@ unique_ids:
     Form1: FDJPLYQAS4XPPZHYMP5ASWPYBJFXF7RO
     Form1.feedback_form: '1776069455485516768446853.5465'
     Form1.parchment_page: '1775872610829675743829906.2743'
+    Form1.parchment_page.ArticleEdit: '1776122657123357543605397.4572'
+    Form1.parchment_page.ArticleView: '1776125746682136156570568.74098'
     Form1.parchment_page.ItemTemplate1: '1776056062884118267042485.70874'
+    Form1.parchment_page.ItemTemplate2: '1776125398388616529734809.8601'
     Form1.parchment_page.RowTemplate1: '1775874003584839792079291.6912'
   modules: {}
   scripts: {}

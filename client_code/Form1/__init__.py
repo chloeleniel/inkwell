@@ -25,25 +25,3 @@ class Form1(Form1Template):
     open_form("Form1.feedback_form")
     pass
 
-
-  stages = ["prewriting", "drafting", "revising"]
-    
-  @handle("prewriting", "click")
-  def prewriting_click(self, **event_args):
-      stage = [0]
-      pass
-  
-  @handle("drafting", "click")
-  def drafting_click(self, **event_args):
-    stage = [1]
-    pass
-
-  @handle("revising", "click")
-  def revising_click(self, **event_args):
-    stage = [2]
-    pass
-
-  @handle("feedback", "click")
-  def feedback_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass

@@ -5,14 +5,22 @@ db_schema:
     columns:
     - admin_ui: {order: 0, width: 200}
       client_hidden: false
-      name: Title
+      name: title
       type: string
     - admin_ui: {order: 1, width: 200}
       client_hidden: false
-      name: Story
+      name: content
       type: string
+    - admin_ui: {order: 2, width: 200}
+      client_hidden: false
+      name: created
+      type: datetime
+    - admin_ui: {order: 3, width: 200}
+      client_hidden: false
+      name: updated
+      type: datetime
     server: full
-    title: Articles
+    title: articles
   feedback:
     client: none
     columns:

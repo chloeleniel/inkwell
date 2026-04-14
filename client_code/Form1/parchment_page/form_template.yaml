@@ -4,9 +4,14 @@ components:
     name: user_stories
     properties: {align: left, bold: true, text: Your Stories}
     type: Label
-  - layout_properties: {grid_position: 'CVOYHS,GFVXPQ'}
-    name: repeating_panel_1
-    properties: {item_template: Form1.parchment_page.ItemTemplate1}
+  - event_bindings: {}
+    layout_properties: {grid_position: 'JAPUBZ,GSGRBR'}
+    name: add_article_button
+    properties: {icon: 'fa:plus-circle', role: secondary-color, text: Add an article}
+    type: Button
+  - layout_properties: {grid_position: 'NMHKPF,DJBXDN'}
+    name: articles_panel
+    properties: {item_template: Form1.parchment_page.ArticleView}
     type: RepeatingPanel
   layout_properties: {slot: default}
   name: content_panel
@@ -38,6 +43,6 @@ components:
   properties: {}
   type: ColumnPanel
 container:
-  properties: {html: '@theme:standard-page.html'}
+  properties: {html: '@theme:standard-page.html', role: null, tooltip: ''}
   type: HtmlTemplate
 is_package: true
