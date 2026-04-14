@@ -6,6 +6,20 @@ components:
     name: title_label
     properties: {role: headline}
     type: Label
+  - components:
+    - layout_properties: {}
+      name: edit_article_button
+      properties: {icon: 'fa:pencil-square', role: secondary-color, text: ''}
+      type: Button
+    - event_bindings: {}
+      layout_properties: {}
+      name: delete_article_button
+      properties: {icon: 'fa:trash', role: secondary-color, text: ''}
+      type: Button
+    layout_properties: {full_width_row: false, grid_position: 'XCVKEG,SDCDQJ'}
+    name: flow_panel
+    properties: {align: right}
+    type: FlowPanel
   - data_bindings:
     - {code: 'self.item[''content'']', property: text, writeback: false}
     layout_properties: {grid_position: 'LECQJJ,EBKBSA'}
@@ -14,7 +28,7 @@ components:
     type: Label
   layout_properties: {grid_position: 'SBUHJT,HTEAGP'}
   name: column_panel_1
-  properties: {role: card}
+  properties: {col_widths: '{"LZFVFA":50}', role: card}
   type: ColumnPanel
 container: {type: ColumnPanel}
 is_package: true
