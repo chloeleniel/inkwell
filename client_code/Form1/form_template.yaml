@@ -2,22 +2,19 @@ components:
 - components:
   - layout_properties: {grid_position: 'BUNQTQ,TSBECI'}
     name: headline_1
-    properties: {align: center, font_size: 15, italic: true, role: headline, text: 'What stage of writing are you in?'}
+    properties:
+      align: center
+      bold: true
+      font_size: 15
+      italic: false
+      role: headline
+      text: |
+        Inkwell
     type: Label
-  - data_bindings: []
-    event_bindings: {}
-    layout_properties: {full_width_row: false, grid_position: 'TFKCSW,VFYISG'}
-    name: prewriting
-    properties: {align: center, bold: true, font_size: 20, text: Prewriting, tooltip: '', underline: true}
-    type: Button
-  - layout_properties: {grid_position: 'TACEGB,JIAHVO'}
-    name: drafting
-    properties: {bold: true, font_size: 20, text: Drafting, underline: true}
-    type: Button
-  - layout_properties: {grid_position: 'LGDETP,DQPJZA'}
-    name: revising
-    properties: {bold: true, font_size: 20, text: Revising, underline: true}
-    type: Button
+  - layout_properties: {grid_position: 'OMPIRN,YBSMOM'}
+    name: label_1
+    properties: {align: center, italic: true, text: 'AI that works with you, not for you.'}
+    type: Label
   layout_properties: {slot: default}
   name: content_panel
   properties: {}
@@ -35,6 +32,10 @@ components:
     layout_properties: {grid_position: 'KQWLAE,LAZZZF'}
     name: home
     properties: {text: Home}
+    type: Button
+  - layout_properties: {grid_position: 'JABKDE,CNOERD'}
+    name: button_1
+    properties: {text: button_1}
     type: Button
   - layout_properties: {grid_position: 'CZXXCM,UYDWJX'}
     name: parchment

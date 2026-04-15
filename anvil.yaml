@@ -50,6 +50,10 @@ runtime_options:
   legacy_features: {bootstrap3: true, class_names: true}
   server_spec: {base: python310-minimal}
   version: 3
+secrets:
+  gemini_api_key:
+    type: secret
+    value: {CGWBJ6V2CVLD7FO5: s9PB4SEN+rRPC597EXmy0NYvw6Z8+c7St0N3ugeshL1SmjrT7GAVQ/d1fxFnLF2uv/RciIkmv0EE8DPVoSrDB6W+vL4PPTaIcEL0S63PsHukLa7uBbqDXVDJt29h07tbcqTQ4S8qDmo9PKihVVoqwsrxYv6uMz+ZMLCtQilINkCFP4G9A6k=}
 services:
 - client_config: {}
   server_config: {}
