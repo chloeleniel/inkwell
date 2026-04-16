@@ -4,6 +4,9 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 from datetime import datetime
+from google import genai
+import anvil.secrets
+import requests
 
 @anvil.server.callable
 def add_feedback(name, writing_mode, feedback):
@@ -43,3 +46,71 @@ def delete_article(article):
     article.delete()
   else:
     raise Exception("Article does not exist")
+
+
+def generate_description(input):
+  messages = [
+    {"role": "system",
+     "content": """STRICT INSTRUCTION: You are a writing assistant for fictional short stories. 
+
+1. Never write stories, scenes, or dialogue for the user.
+2. If a user asks you to write something, refuse and ask a probing question instead.
+3. Your goal is to ask questions that help the writer discover their own ideas.
+4. Provide structural feedback (e.g., 'Your pacing is fast here').
+5. Keep responses short and focused on the writer's thought process.
+
+Again, your role is to ask probing questions and encourage the writer to think."""}
+  ]
+
+  messages.append({"role": "user", "content": f"{input}"})
+  completion = 
+
+
+
+client = genai.Client(api_key=anvil.secrets.get_secret('gemini_api_key'))
+
+response = client.models.generate_content(
+  model = "gemini-2.5-flash", contents = """STRICT INSTRUCTION: You are a writing assistant for fictional short stories. 
+
+1. Never write stories, scenes, or dialogue for the user.
+2. If a user asks you to write something, refuse and ask a probing question instead.
+3. Your goal is to ask questions that help the writer discover their own ideas.
+4. Provide structural feedback (e.g., 'Your pacing is fast here').
+5. Keep responses short and focused on the writer's thought process.
+
+Again, your role is to ask probing questions and encourage the writer to think."""
+)
+
+print(response.text)
+
+
+def call_gen_ai(story_text):
+  response = client.models.generate_content(
+    model = "gemini-2.5-flash", contents = """STRICT INSTRUCTION: You are a writing assistant for fictional short stories. 
+  
+  1. Never write stories, scenes, or dialogue for the user.
+  2. If a user asks you to write something, refuse and ask a probing question instead.
+  3. Your goal is to ask questions that help the writer discover their own ideas.
+  4. Provide structural feedback (e.g., 'Your pacing is fast here').
+  5. Keep responses short and focused on the writer's thought process.
+  
+  Again, your role is to ask probing questions and encourage the writer to think."""
+  )
+  
+  print(response.text)
+
+def handle_incoming_messages(msg):
+  try:
+    story_text = input("What are your ideas?")
+    
+    genai_response = call_gen_ai(story_text)
+
+    reply = genai_response
+
+    for msg in genai_response.msg:
+      reply += story_text
+
+    msg.reply(text = reply)
+
+  except(ValueError, KeyError):
+    msg.reply(text="Your message could not be processed. Sorry!")

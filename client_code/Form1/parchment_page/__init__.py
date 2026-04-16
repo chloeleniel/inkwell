@@ -25,6 +25,11 @@ class parchment_page(parchment_pageTemplate):
       open_form("Form1.feedback_form")
       pass
 
+    @handle("ai_chat", "click")
+    def ai_chat_click(self, **event_args):
+      open_form("Form1.ai_chat")
+      pass
+
     @handle("add_article", "click")
     def add_article_button_click(self, **event_args):
       new_article = {}
