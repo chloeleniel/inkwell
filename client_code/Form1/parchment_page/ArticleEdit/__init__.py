@@ -9,3 +9,10 @@ from anvil.tables import app_tables
 class ArticleEdit(ArticleEditTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
+
+  @handle("send_button", "click")
+  def send_button_click(self, **event_args):
+    input = self.text_area_1.text and self.content_box.text
+    questions = anvil.server.call('generate_questions', input)
+    self.rich_text_1.content = questions
+    pass

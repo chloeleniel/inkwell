@@ -8,9 +8,14 @@ components:
     name: text_box_1
     properties: {}
     type: TextBox
+  - event_bindings: {}
+    layout_properties: {grid_position: 'LXRQFS,IYJIXS'}
+    name: send_button
+    properties: {align: center, icon: 'fa:send', role: secondary-color, text: ''}
+    type: Button
   layout_properties: {slot: default}
   name: content_panel
-  properties: {}
+  properties: {col_widths: '{"JDNEAR":50,"IYJIXS":10}'}
   type: ColumnPanel
 - layout_properties: {slot: nav-right}
   name: navbar_links

@@ -7,6 +7,9 @@ from datetime import datetime
 from google import genai
 import anvil.secrets
 import requests
+from google import genai
+import anvil.secrets
+import requests
 
 @anvil.server.callable
 def add_feedback(name, writing_mode, feedback):
@@ -47,11 +50,11 @@ def delete_article(article):
   else:
     raise Exception("Article does not exist")
 
+@anvil.server.callable
+def generate_questions(input):
+  client = genai.Client(api_key=anvil.secrets.get_secret('gemini_api_key'))
 
-def generate_description(input):
-  messages = [
-    {"role": "system",
-     "content": """STRICT INSTRUCTION: You are a writing assistant for fictional short stories. 
+  prompt = """STRICT INSTRUCTION: You are a writing assistant for fictional short stories. 
 
 1. Never write stories, scenes, or dialogue for the user.
 2. If a user asks you to write something, refuse and ask a probing question instead.
@@ -59,17 +62,19 @@ def generate_description(input):
 4. Provide structural feedback (e.g., 'Your pacing is fast here').
 5. Keep responses short and focused on the writer's thought process.
 
-Again, your role is to ask probing questions and encourage the writer to think."""}
+Again, your role is to ask probing questions and encourage the writer to think."""
+  
+  messages = [
+    {"role": "system",
+     "content": prompt}
   ]
 
   messages.append({"role": "user", "content": f"{input}"})
-  completion = client.chat.completions.create(
+  response = client.models.generate_content(
     model = "gemini-2.5-flash",
-    messages = messages
+    contents = prompt
   )
 
-  reply = completion.choices[0].message.content
-  return reply
-
+  return response
 
 
