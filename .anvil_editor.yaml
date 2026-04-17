@@ -7,6 +7,8 @@ unique_ids:
     Form1.feedback_form: '1776069455485516768446853.5465'
     Form1.parchment_page: '1775872610829675743829906.2743'
     Form1.parchment_page.ArticleEdit: '1776122657123357543605397.4572'
+    Form1.parchment_page.ArticleEdit.Form2: '1776413898475311979357866.98004'
+    Form1.parchment_page.ArticleEdit.ItemTemplate1: '177641404179497472468397.89836'
     Form1.parchment_page.ArticleView: '1776125746682136156570568.74098'
     Form1.parchment_page.ai_chat: '177637474540069867512867.7707'
   modules: {}

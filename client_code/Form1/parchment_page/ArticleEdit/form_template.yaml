@@ -1,29 +1,26 @@
 components:
 - components:
-  - layout_properties: {grid_position: 'OYDSNT,SALZCH'}
+  - layout_properties: {grid_position: 'KIOMIJ,JFABOR'}
     name: headline_1
     properties: {align: center, role: headline, text: AI Chat}
     type: Label
-  - layout_properties: {grid_position: 'CPCXYL,BAJQGI'}
-    name: rich_text_1
-    properties: {}
-    type: RichText
-  - layout_properties: {grid_position: 'AKVELB,RBJCNS'}
-    name: headline_2
-    properties: {role: headline}
-    type: Label
-  - layout_properties: {grid_position: 'YRCUOX,ZQZEMH'}
+  - data_bindings: []
+    layout_properties: {grid_position: 'PQJRRM,QUSGWU SQSBAA,ASSFXC'}
+    name: repeating_panel_1
+    properties: {item_template: Form1.parchment_page.ArticleEdit.Form2}
+    type: RepeatingPanel
+  - layout_properties: {grid_position: 'QUEVRM,DYOREU'}
     name: text_area_1
     properties: {}
     type: TextArea
   - event_bindings: {}
-    layout_properties: {grid_position: 'YRCUOX,AFSCAP'}
+    layout_properties: {grid_position: 'QUEVRM,FKVUJU'}
     name: send_button
     properties: {icon: 'fa:send', role: secondary-color, text: ''}
     type: Button
   layout_properties: {grid_position: 'TICKLA,IWACJM'}
   name: column_panel_1
-  properties: {}
+  properties: {col_widths: '{"DYOREU":45,"FKVUJU":15}'}
   type: ColumnPanel
 - data_bindings:
   - {code: 'self.item[''title'']', property: text, writeback: true}
