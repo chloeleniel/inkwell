@@ -72,9 +72,9 @@ Again, your role is to ask probing questions and encourage the writer to think."
   messages.append({"role": "user", "content": f"{input}"})
   response = client.models.generate_content(
     model = "gemini-2.5-flash",
-    contents = prompt
+    contents=f"{prompt}\n\nUser input: {input}"
   )
 
-  return response
+  return response.text
 
 
