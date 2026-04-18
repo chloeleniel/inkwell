@@ -4,11 +4,15 @@ components:
     name: headline_1
     properties: {align: center, role: headline, text: AI Chat}
     type: Label
-  - data_bindings: []
-    layout_properties: {grid_position: 'PQJRRM,QUSGWU SQSBAA,ASSFXC'}
-    name: repeating_panel_1
-    properties: {item_template: Form1.parchment_page.ArticleEdit.Form2}
-    type: RepeatingPanel
+  - components:
+    - layout_properties: {}
+      name: repeating_panel_1
+      properties: {item_template: Form1.parchment_page.ArticleEdit.ItemTemplate2}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'ELLEVN,JSMTFB'}
+    name: flow_panel_1
+    properties: {}
+    type: FlowPanel
   - layout_properties: {grid_position: 'QUEVRM,DYOREU'}
     name: text_area_1
     properties: {}
