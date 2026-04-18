@@ -4,6 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..Forml.parchment_page.ArticleEdit.Form2 import Forml.parchment_page.ArticleEdit.Form2
 
 
 class ArticleEdit(ArticleEditTemplate):
