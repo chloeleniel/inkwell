@@ -16,3 +16,5 @@ class ArticleEdit(ArticleEditTemplate):
     response = anvil.server.call('generate_questions', input)
     self.rich_text_1.content = response
     pass
+
+    

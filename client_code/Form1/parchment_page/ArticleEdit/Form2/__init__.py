@@ -11,3 +11,5 @@ class Form2(Form2Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+  response = anvil.server.call('generate_questions', input)
+  self.rich_text_1.content = response
