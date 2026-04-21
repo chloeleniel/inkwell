@@ -13,6 +13,7 @@ import requests
 
 @anvil.server.callable
 def add_feedback(name, writing_mode, feedback):
+  # receive feedback
   app_tables.feedback.add_row(
     name=name, 
     writing_mode=writing_mode, 
@@ -22,6 +23,7 @@ def add_feedback(name, writing_mode, feedback):
 
 @anvil.server.callable
 def add_article(article_dict):
+  # create new article
   app_tables.articles.add_row(
     created=datetime.now(),
     **article_dict
@@ -30,6 +32,7 @@ def add_article(article_dict):
 @anvil.server.callable
 def get_articles():
   return app_tables.articles.search(
+    # display articles in a list
     tables.order_by("created", ascending=False)
   )
 
@@ -52,6 +55,7 @@ def delete_article(article):
 
 @anvil.server.callable
 def generate_questions(input):
+  # prompts the AI to generate questions
   client = genai.Client(api_key=anvil.secrets.get_secret('gemini_api_key'))
 
   prompt = """STRICT INSTRUCTION: You are a writing assistant for fictional short stories. 
