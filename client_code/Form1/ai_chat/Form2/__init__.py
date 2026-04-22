@@ -1,4 +1,4 @@
-from ._anvil_designer import ai_chatTemplate
+from ._anvil_designer import Form2Template
 from anvil import *
 import anvil.server
 import anvil.tables as tables
@@ -6,10 +6,9 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 
-class ai_chat(ai_chatTemplate):
+class Form2(Form2Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-  response = anvil.server.call('generate_questions', input)
-  self.rich_text_1.content = response
+    # Any code you write here will run before the form opens.

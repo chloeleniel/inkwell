@@ -33,14 +33,14 @@ components:
     name: home
     properties: {text: Home}
     type: Button
-  - event_bindings: {}
-    layout_properties: {grid_position: 'JABKDE,CNOERD'}
-    name: ai_chat
-    properties: {text: ai Chat}
-    type: Button
   - layout_properties: {grid_position: 'CZXXCM,UYDWJX'}
     name: parchment
     properties: {text: Parchment}
+    type: Button
+  - event_bindings: {}
+    layout_properties: {grid_position: 'TCIGLE,ELWUSK'}
+    name: ai_chat
+    properties: {text: ai Chat}
     type: Button
   - event_bindings: {}
     layout_properties: {grid_position: 'QFAUJM,FMBUFT'}
