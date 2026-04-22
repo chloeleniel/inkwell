@@ -30,6 +30,11 @@ class ai_chat(ai_chatTemplate):
     open_form("Form1.ai_chat")
     pass
 
+  def updateprompts(self,**kwargs):
+    self.prompt_panel.items = anvil.server.call('getmyprompts')
+  pass
+
+  @handle("submit_button", "click")
   def submit_button_click(self, **event_args):
     user_prompt = self.user_prompt.text
     response = anvil.server.call('generate_questions', user_prompt)
@@ -43,4 +48,6 @@ class ai_chat(ai_chatTemplate):
     self.form_show()
     self.updateprompts()
     pass
+
+
     

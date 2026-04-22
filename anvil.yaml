@@ -47,7 +47,7 @@ db_schema:
     columns:
     - admin_ui: {order: 0, width: 200}
       client_hidden: false
-      name: prompt
+      name: prompts
       type: string
     - admin_ui: {order: 1, width: 200}
       client_hidden: false
@@ -59,7 +59,7 @@ db_schema:
       type: string
     - admin_ui: {order: 3, width: 200}
       client_hidden: false
-      name: response
+      name: responses
       type: simpleObject
     indexes: []
     server: full
@@ -83,5 +83,5 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/anvil/secrets.yml
-startup: {module: Form1.parchment_page.ArticleEdit, type: form}
+startup: {module: Form1.ai_chat, type: form}
 startup_form: null

@@ -17,10 +17,10 @@ components:
       name: label_2
       properties: {text: 'Ponder:'}
       type: Label
-    - layout_properties: {grid_position: 'PRTTDT,KGAYYE'}
+    - layout_properties: {grid_position: 'AHAJTG,YTFJKK'}
       name: response_box
-      properties: {content: response}
-      type: RichText
+      properties: {}
+      type: Label
     - layout_properties: {grid_position: 'ZKHDAB,MMTANN'}
       name: clear_button
       properties: {text: Next}
@@ -30,11 +30,11 @@ components:
     properties: {}
     type: ColumnPanel
   - components:
-    - name: repeating_panel_1
+    - name: prompt_panel
       properties: {item_template: Form1.ai_chat.RowTemplate1}
       type: RepeatingPanel
     layout_properties: {grid_position: 'KQNNLN,ZDCTUJ'}
-    name: prompts_grid
+    name: prompt_grid
     properties:
       columns:
       - {data_key: column_1, id: JKSDUP, title: Prompt}
