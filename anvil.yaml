@@ -42,6 +42,28 @@ db_schema:
       type: datetime
     server: full
     title: feedback
+  responselog:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      client_hidden: false
+      name: prompt
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      client_hidden: false
+      name: user
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      client_hidden: false
+      name: context
+      type: string
+    - admin_ui: {order: 3, width: 200}
+      client_hidden: false
+      name: response
+      type: simpleObject
+    indexes: []
+    server: full
+    title: responselog
 metadata: {description: '', title: Inkwell}
 name: Inkwell
 package_name: Inkwell

@@ -7,9 +7,6 @@ from datetime import datetime
 from google import genai
 import anvil.secrets
 import requests
-from google import genai
-import anvil.secrets
-import requests
 
 @anvil.server.callable
 def add_feedback(name, writing_mode, feedback):
@@ -80,5 +77,12 @@ Again, your role is to ask probing questions and encourage the writer to think."
   )
 
   return response.text
+
+@anvil.server.callable
+def getmyprompts():
+  user = anvil.users.get_user()['email']
+  items = app_tables.responselog.search(user=user)
+  return items
+
 
 

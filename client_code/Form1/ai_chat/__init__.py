@@ -29,3 +29,18 @@ class ai_chat(ai_chatTemplate):
   def ai_chat_click(self, **event_args):
     open_form("Form1.ai_chat")
     pass
+
+  def submit_button_click(self, **event_args):
+    user_prompt = self.user_prompt.text
+    response = anvil.server.call('generate_questions', user_prompt)
+    self.response_card.visible = True
+    self.response_box.text = response
+    self.updateprompts()
+    pass
+
+    def clear_button_click(self, **event_args):
+      self.user_prompt.text = ""
+    self.form_show()
+    self.updateprompts()
+    pass
+    
