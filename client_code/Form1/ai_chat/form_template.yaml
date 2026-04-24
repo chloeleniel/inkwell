@@ -2,7 +2,7 @@ components:
 - components:
   - layout_properties: {grid_position: 'LSAMLZ,LMKGGO'}
     name: label_1
-    properties: {text: 'Enter your ideas:'}
+    properties: {bold: true, text: 'Enter your ideas:'}
     type: Label
   - data_bindings:
     - {code: 'self.item[''user_prompts'']', property: text, writeback: true}
@@ -17,7 +17,7 @@ components:
   - components:
     - layout_properties: {grid_position: 'LLSWQM,GWKXUG'}
       name: label_2
-      properties: {text: 'Ponder:'}
+      properties: {bold: true, text: 'Ponder:'}
       type: Label
     - data_bindings: []
       layout_properties: {grid_position: 'QSHSKG,NVIYMA'}
@@ -36,12 +36,15 @@ components:
     - name: prompt_panel
       properties: {item_template: Form1.ai_chat.RowTemplate1}
       type: RepeatingPanel
-    layout_properties: {full_width_row: false, grid_position: 'KQNNLN,ZDCTUJ'}
+    data_bindings: []
+    layout_properties: {full_width_row: false, grid_position: 'KQNNLN,ZDCTUJ', row_background: ''}
     name: prompt_grid
     properties:
+      background: theme:Gray 200
       columns:
       - {data_key: user_prompts, expand: false, id: JKSDUP, title: Prompt}
       - {data_key: responses, id: VJQQOR, title: Response}
+      show_page_controls: true
     type: DataGrid
   layout_properties: {slot: default}
   name: content_panel

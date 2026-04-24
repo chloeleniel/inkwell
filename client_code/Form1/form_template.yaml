@@ -5,7 +5,7 @@ components:
     properties:
       align: center
       bold: true
-      font_size: 15
+      font_size: 50
       italic: false
       role: headline
       text: |
@@ -17,7 +17,14 @@ components:
     type: Label
   - layout_properties: {grid_position: 'PNAIZX,KPYERX'}
     name: label_2
-    properties: {text: description description}
+    properties:
+      text: |
+        Navigation:
+
+        Home: You are here
+        Parchment: Write stories and edit them
+        AI Chat: Explain your ideas to an AI and get questions to push your story forward
+        Feedback: Let me know if you have any comments or suggestions!
     type: Label
   layout_properties: {slot: default}
   name: content_panel

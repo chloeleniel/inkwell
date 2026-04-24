@@ -4,7 +4,7 @@ components:
     - {code: 'self.item[''title'']', property: text, writeback: false}
     layout_properties: {grid_position: 'XCVKEG,LZFVFA'}
     name: title_label
-    properties: {role: headline}
+    properties: {bold: true, role: headline}
     type: Label
   - components:
     - layout_properties: {}
@@ -24,7 +24,7 @@ components:
     - {code: 'self.item[''content'']', property: text, writeback: false}
     layout_properties: {grid_position: 'LECQJJ,EBKBSA'}
     name: content_label
-    properties: {bold: true, italic: false}
+    properties: {bold: false, italic: false}
     type: Label
   layout_properties: {grid_position: 'SBUHJT,HTEAGP'}
   name: column_panel_1
