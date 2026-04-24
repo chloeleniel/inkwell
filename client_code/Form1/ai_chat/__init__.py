@@ -36,18 +36,12 @@ class ai_chat(ai_chatTemplate):
   def submit_button_click(self, **event_args):
     user_prompts = self.user_prompts.text
     responses = anvil.server.call('generate_questions', user_prompts)
-    self.response_card.visible = True
     self.response_box.text = responses
-    self.updateprompts()
+    self.prompt_panel.items = app_tables.responselog.search()
     pass
 
-    def clear_button_click(self, **event_args):
-      self.user_prompt.text = ""
-    self.form_show()
-    self.updateprompts()
+  @handle('clear_button', 'click')
+  def clear_button_click(self, **event_args):
+    self.user_prompts.text = ""
+    self.prompt_panel.items = app_tables.responselog.search()
     pass
-
-  def updateprompts(self,**kwargs):
-    self.prompt_panel.items = anvil.server.call('getmyprompts')
-  pass
-    

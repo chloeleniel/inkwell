@@ -110,7 +110,7 @@ body {
 
 a, a:focus {
   text-decoration: none;
-  color: %color:Primary 700%;
+  color: %color:white 700%;
 }
 
 a:hover, a:active {
