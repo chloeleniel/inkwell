@@ -5,7 +5,7 @@ components:
     properties: {text: 'Enter your ideas:'}
     type: Label
   - layout_properties: {grid_position: 'RDALLH,EIEUHG'}
-    name: user_prompt
+    name: user_prompts
     properties: {}
     type: TextArea
   - layout_properties: {grid_position: 'ADLSMP,SLSXXD'}
@@ -17,7 +17,8 @@ components:
       name: label_2
       properties: {text: 'Ponder:'}
       type: Label
-    - layout_properties: {grid_position: 'AHAJTG,YTFJKK'}
+    - data_bindings: []
+      layout_properties: {grid_position: 'AHAJTG,YTFJKK'}
       name: response_box
       properties: {}
       type: Label

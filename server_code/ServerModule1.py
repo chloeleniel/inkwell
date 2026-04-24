@@ -79,11 +79,9 @@ Again, your role is to ask probing questions and encourage the writer to think."
   return response.text
 
 @anvil.server.callable
-def getmyprompts(user, context, prompts, responses):
+def getmyprompts(user_prompts, responses):
   app_tables.responselog.add_row(
-    user=user,
-    context=context,
-    prompts=prompts,
+    user_prompts=user_prompts,
     responses=responses)  
   items = app_tables.responselog.search()
   return items
