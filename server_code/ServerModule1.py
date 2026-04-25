@@ -81,5 +81,13 @@ Again, your role is to ask probing questions and encourage the writer to think."
 
 @anvil.server.callable
 def getmyprompts(prompt_data):
-  if prompt_data.get("user_prompts") and prompt_data.get("responses"):
+  if "user_prompts" in prompt_data and "responses" in prompt_data:
     app_tables.responselog.add_row(**prompt_data)
+
+@anvil.server.callable
+def summarize_conversation(chat_history):
+  system_message = "You are an assistant that extracts key main points from a transcript. Return them as a bulleted list."
+  full_transcript = "\n".join([f"{m['role']}: {m['text']}" for m in chat_history])
+  summary = anvil.server.call('query_llm', system_message, full_transcript)
+  return summary
+

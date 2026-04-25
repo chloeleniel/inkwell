@@ -31,12 +31,15 @@ class ai_chat(ai_chatTemplate):
     pass
 
 
-
   @handle("submit_button", "click")
   def submit_button_click(self, **event_args):
     user_prompts = self.user_prompts.text
     responses = anvil.server.call('generate_questions', user_prompts)
     self.response_box.text = responses
+    anvil.server.call('getmyprompts', {
+      "user_prompts": user_prompts,
+      "responses": responses
+    })
     self.prompt_panel.items = app_tables.responselog.search()
     pass
 
