@@ -5,8 +5,9 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-
 class chat_summary(chat_summaryTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
+
+    self.edit_summary.text = anvil.server.call("summarize_conversation", global chat_history)
 
