@@ -4,6 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from .chat_summary import chat_summary
 
 
 class ai_chat(ai_chatTemplate):
@@ -48,3 +49,15 @@ class ai_chat(ai_chatTemplate):
     self.user_prompts.text = ""
     self.prompt_panel.items = app_tables.responselog.search()
     pass
+
+  @handle("done_button", "click")
+  def done_button_click(self, **event_args):
+    alert(
+      content=chat_summary,
+      self.edit_summary.text = anvil.server.call("summarize conversation", chat_history)
+    )
+
+    if save_clicked:
+      # Proceed to Step 5
+      anvil.server.call('save_final_summary', check_form.text_area_edit.text)
+      pass
