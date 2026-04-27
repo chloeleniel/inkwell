@@ -23,6 +23,7 @@ components:
 
         Home: You are here
         Parchment: Write stories and edit them
+        Reference: Summaries of all your chats can be seen here.
         AI Chat: Explain your ideas to an AI and get questions to push your story forward
         Feedback: Let me know if you have any comments or suggestions!
     type: Label
@@ -44,9 +45,13 @@ components:
     name: home
     properties: {text: Home}
     type: Button
-  - layout_properties: {grid_position: 'CZXXCM,UYDWJX'}
+  - layout_properties: {grid_position: 'EUQIWZ,IWEUAD'}
     name: parchment
     properties: {text: Parchment}
+    type: Button
+  - layout_properties: {grid_position: 'RTWXVC,FKSNXV'}
+    name: reference
+    properties: {text: reference}
     type: Button
   - event_bindings: {}
     layout_properties: {grid_position: 'TCIGLE,ELWUSK'}

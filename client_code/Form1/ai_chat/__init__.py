@@ -52,6 +52,7 @@ class ai_chat(ai_chatTemplate):
   
   @handle("done_button", "click")
   def done_button_click(self, **event_args):
+    new_ref = {anvil.server.call('summarize_conversation', app_tables.responselog.search())}
     save_clicked = alert(
       content=chat_summary(),
       title="Confirm Responses",
@@ -60,7 +61,7 @@ class ai_chat(ai_chatTemplate):
     )
 
     # add to reference list
-    # if save_clicked:
-    #   anvil.server.call('add_ref', new_ref)
-    #   self.refresh_ref()
+    if save_clicked:
+      anvil.server.call('add_ref', new_ref)
 
+      

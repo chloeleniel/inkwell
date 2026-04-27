@@ -26,9 +26,13 @@ components:
     name: home
     properties: {text: Home}
     type: Button
-  - layout_properties: {grid_position: ''}
+  - layout_properties: {grid_position: 'DLFAVP,DNZSXL'}
     name: parchment
     properties: {text: Parchment}
+    type: Button
+  - layout_properties: {grid_position: 'NKNTXO,FOAMHR'}
+    name: reference
+    properties: {text: reference}
     type: Button
   - layout_properties: {grid_position: 'ROGMFM,ATTFIR'}
     name: ai_chat

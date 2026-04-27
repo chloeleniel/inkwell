@@ -54,6 +54,10 @@ components:
     name: parchment
     properties: {text: parchment}
     type: Button
+  - layout_properties: {grid_position: 'FGPQOA,DOGTWZ'}
+    name: reference
+    properties: {text: reference}
+    type: Button
   - layout_properties: {grid_position: 'XTZFFZ,CFWCAI'}
     name: ai_chat
     properties: {text: AI Chat}

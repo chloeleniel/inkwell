@@ -86,8 +86,14 @@ def getmyprompts(prompt_data):
 
 @anvil.server.callable
 def summarize_conversation(chat_history):
-  system_message = "You are an assistant that extracts key main points from a transcript. Return them as a bulleted list."
-  full_transcript = "\n".join([f"{m['role']}: {m['text']}" for m in chat_history])
-  summary = anvil.server.call('query_llm', system_message, full_transcript)
+  chat_history = app_tables.responselog.search()
+  summary = generate_questions(f"Summarize this f{chat_history} into a list of bullet points.")
   return summary
 
+@anvil.server.callable
+def add_ref(new_ref):
+  app_tables.references.add_row(new_ref)
+
+@anvil.server.callable
+def show_ref():
+  return app_tables.references.search()

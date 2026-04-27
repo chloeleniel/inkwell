@@ -42,6 +42,16 @@ db_schema:
       type: datetime
     server: full
     title: feedback
+  references:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      client_hidden: false
+      name: user_references
+      type: string
+    indexes: []
+    server: full
+    title: references
   responselog:
     client: search
     columns:

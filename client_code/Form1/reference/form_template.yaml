@@ -1,0 +1,51 @@
+components:
+- components:
+  - layout_properties: {grid_position: 'OESMTN,WZEDEU'}
+    name: headline_2
+    properties: {bold: true, role: headline, text: References}
+    type: Label
+  - layout_properties: {grid_position: 'LAYMFR,SIOZNM'}
+    name: user_references
+    properties: {item_template: Form1.reference.ItemTemplate1}
+    type: RepeatingPanel
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties: {}
+  type: FlowPanel
+- components:
+  - layout_properties: {grid_position: 'LMQPTE,IVAEVK'}
+    name: home
+    properties: {text: Home}
+    type: Button
+  - layout_properties: {grid_position: 'QQWGOH,BBRWCM'}
+    name: parchment
+    properties: {text: Parchment}
+    type: Button
+  - layout_properties: {grid_position: 'SBWWEI,RAXILZ'}
+    name: reference
+    properties: {text: reference}
+    type: Button
+  - layout_properties: {grid_position: 'JXBWKT,FFNFXK'}
+    name: ai_chat_2
+    properties: {text: AI Chat}
+    type: Button
+  - layout_properties: {grid_position: 'JWKVWU,NGMWPJ'}
+    name: feedback
+    properties: {text: Feedback}
+    type: Button
+  layout_properties: {slot: left-nav}
+  name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {slot: title}
+  name: headline_1
+  properties: {role: headline, text: Inkwell}
+  type: Label
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true
