@@ -1,3 +1,11 @@
-components: []
+components:
+- layout_properties: {grid_position: 'KVXZNT,HBHBCQ'}
+  name: headline_1
+  properties: {align: center, bold: true, role: headline, text: Inkwell}
+  type: Label
+- layout_properties: {grid_position: 'VHPASC,COYEOG'}
+  name: label_1
+  properties: {text: Description description}
+  type: Label
 container: {type: ColumnPanel}
 is_package: true
