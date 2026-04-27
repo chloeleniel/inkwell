@@ -63,5 +63,6 @@ class ai_chat(ai_chatTemplate):
     # add to reference list
     if save_clicked:
       anvil.server.call('add_ref', new_ref)
+      self.refresh_responses()
 
-      
+    

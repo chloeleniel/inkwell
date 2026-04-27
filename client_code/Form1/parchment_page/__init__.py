@@ -15,20 +15,25 @@ class parchment_page(parchment_pageTemplate):
       self.init_components(**properties)
       self.refresh_articles()
 
-    @handle("home", "click")
-    def home_click(self, **event_args):
-      open_form("Form1")
-      pass
-
-    @handle("feedback", "click")
-    def feedback_click(self, **event_args):
-      open_form("Form1.feedback_form")
-      pass
-
-    @handle("ai_chat", "click")
-    def ai_chat_click(self, **event_args):
-      open_form("Form1.ai_chat")
-      pass
+      @handle("home", "click")
+      def home_click(self, **event_args):
+        open_form("Form1")
+        pass
+  
+      @handle("feedback", "click")
+      def feedback_click(self, **event_args):
+        open_form("Form1.feedback_form")
+        pass
+  
+      @handle("ai_chat", "click")
+      def ai_chat_click(self, **event_args):
+        open_form("Form1.ai_chat")
+        pass
+  
+      @handle("reference", "click")
+      def reference_click(self, **event_args):
+        open_form('Form1.reference')
+        pass
 
     @handle("add_article", "click")
     def add_article_button_click(self, **event_args):

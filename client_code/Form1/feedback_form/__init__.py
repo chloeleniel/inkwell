@@ -30,6 +30,11 @@ class feedback_form(feedback_formTemplate):
     open_form("Form1.ai_chat")
   pass
 
+  @handle("reference", "click")
+  def reference_click(self, **event_args):
+    open_form('Form1.reference')
+    pass
+
   def clear_inputs(self):
     self.name.text = ""
     self.writing_mode.text = ""

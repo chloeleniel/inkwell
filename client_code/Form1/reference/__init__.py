@@ -11,4 +11,26 @@ class reference(referenceTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+    @handle("home", "click")
+    def home_click(self, **event_args):
+      open_form("Form1")
+    pass
+
+    @handle("parchment", "click")
+    def parchment_click(self, **event_args):
+      open_form("Form1.parchment_page")
+      pass
+  
+    @handle("feedback", "click")
+    def feedback_click(self, **event_args):
+      open_form("Form1.feedback_form")
+      pass
+  
+    @handle("ai_chat", "click")
+    def ai_chat_click(self, **event_args):
+      open_form("Form1.ai_chat")
+      pass
+
     self.user_references.items = anvil.server.call('show_ref')
+    self.refresh_references()
+    

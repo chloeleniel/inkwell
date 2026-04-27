@@ -30,3 +30,8 @@ class Form1(Form1Template):
     open_form("Form1.ai_chat")
     pass
 
+  @handle("reference", "click")
+  def reference_click(self, **event_args):
+    open_form('Form1.reference')
+    pass
+
