@@ -7,6 +7,7 @@ from datetime import datetime
 from google import genai
 import anvil.secrets
 import requests
+import gemmaai
 
 @anvil.server.callable
 def add_feedback(name, writing_mode, feedback):
@@ -72,7 +73,7 @@ Again, your role is to ask probing questions and encourage the writer to think."
 
   messages.append({"role": "user", "content": f"{input}"})
   response = client.models.generate_content(
-    model = "gemini-2.5-flash",
+    model = "gemma-2b-instruct",
     contents=f"{prompt}\n\nUser input: {input}"
   )
 
