@@ -6,6 +6,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class chat_summary(chat_summaryTemplate):
-  def __init__(self, **properties):
+  def __init__(self, summary_text, **properties):
     self.init_components(**properties)
 
+    self.edit_summary.text = summary_text

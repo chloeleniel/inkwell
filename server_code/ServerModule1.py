@@ -55,7 +55,7 @@ def generate_questions(input):
   # prompts the AI to generate questions
   client = genai.Client(api_key=anvil.secrets.get_secret('gemini_api_key'))
 
-  prompt = """STRICT INSTRUCTION: You are a writing assistant for fictional short stories. 
+  system_prompt = """STRICT INSTRUCTION: You are a writing assistant for fictional short stories. 
 
 1. Never write stories, scenes, or dialogue for the user.
 2. If a user asks you to write something, refuse and ask a probing question instead.
@@ -64,36 +64,54 @@ def generate_questions(input):
 5. Keep responses short and focused on the writer's thought process.
 
 Again, your role is to ask probing questions and encourage the writer to think."""
-  
-  messages = [
-    {"role": "system",
-     "content": prompt}
-  ]
 
-  messages.append({"role": "user", "content": f"{input}"})
+  chat_history = app_tables.responselog.search()
+  context_string = ""
+  for row in chat_history:
+    context_string += f"User: {row['user_prompts']}\nAssistant: {row['responses']}\n"
+
+  full_prompt = f"{system_prompt}\n\nPast Conversation:\n{context_string}\n\nNew User Input: {input}"
+
   response = client.models.generate_content(
     model = "gemini-3.1-flash-lite-preview",
-    contents=f"{prompt}\n\nUser input: {input}"
+    contents=full_prompt
   )
 
+  app_tables.responselog.add_row(user_prompts=input, responses=response.text)
+  
   return response.text
 
-
 @anvil.server.callable
-def getmyprompts(prompt_data):
-  if "user_prompts" in prompt_data and "responses" in prompt_data:
-    app_tables.responselog.add_row(**prompt_data)
+def summarize_chat():
+  logs = app_tables.responselog.search()
+  if not logs:
+    return "No history to summarize."
 
-@anvil.server.callable
-def summarize_conversation(chat_history):
-  chat_history = app_tables.responselog.search()
-  summary = generate_questions(f"Summarize this f{chat_history} into a list of bullet points.")
+  history_text = "\n".join([f"User: {r['user_prompts']} AI: {r['responses']}" for r in logs])
+
+  client = genai.Client(api_key=anvil.secrets.get_secret('gemini_api_key'))
+  summary_response = client.models.generate_content(
+    model="gemini-3.1-flash-lite-preview",
+    contents=f"Summarize the key story ideas and decisions from this chat into bullet points:\n{history_text}"
+  )
+  summary = summary_response.text
+  app_tables.references.add_row(user_references=summary, created=datetime.now())
+
+  for row in logs:
+    row.delete()
+    
   return summary
-
+  
 @anvil.server.callable
 def add_ref(new_ref):
-  app_tables.references.add_row(new_ref)
+  app_tables.references.add_row(
+    user_references=new_ref,
+    created=datetime.now()
+  )
 
 @anvil.server.callable
 def show_ref():
-  return app_tables.references.search()
+  return app_tables.references.search(
+    tables.order_by("created", ascending=False)
+  )
+

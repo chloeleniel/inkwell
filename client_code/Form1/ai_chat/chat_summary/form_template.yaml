@@ -8,6 +8,12 @@ components:
   properties: {align: center, italic: true, text: Read through what has been discussed so far to use as a reference while you're writing. Edit any part you think is incorrect or needs to be changed.}
   type: Label
 - data_bindings:
+  - {code: 'self.item[''ref_title'']', property: text, writeback: false}
+  layout_properties: {grid_position: 'KWHCRE,ICCFLX'}
+  name: label_2
+  properties: {text: Title}
+  type: Label
+- data_bindings:
   - {code: 'self.item[''edit_summary'']', property: text, writeback: true}
   layout_properties: {grid_position: 'KPOTIF,QJEGFH'}
   name: edit_summary

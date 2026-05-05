@@ -67,9 +67,14 @@ components:
     name: home_2
     properties: {text: Home}
     type: Button
-  - layout_properties: {grid_position: ''}
+  - layout_properties: {grid_position: 'JDVJMZ,FAAAIQ'}
     name: parchment
     properties: {text: Parchment}
+    type: Button
+  - event_bindings: {}
+    layout_properties: {grid_position: 'EXOAHM,VHAZSA'}
+    name: reference
+    properties: {text: reference}
     type: Button
   - layout_properties: {grid_position: ''}
     name: ai_chat

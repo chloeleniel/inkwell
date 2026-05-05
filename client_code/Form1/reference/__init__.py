@@ -32,5 +32,3 @@ class reference(referenceTemplate):
       pass
 
     self.user_references.items = anvil.server.call('show_ref')
-    self.refresh_references()
-    

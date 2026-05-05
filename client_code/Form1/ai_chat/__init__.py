@@ -31,16 +31,16 @@ class ai_chat(ai_chatTemplate):
     open_form("Form1.ai_chat")
     pass
 
+  @handle("reference", "click")
+  def reference_click(self, **event_args):
+    open_form('Form1.reference')
+  pass
 
   @handle("submit_button", "click")
   def submit_button_click(self, **event_args):
     user_prompts = self.user_prompts.text
     responses = anvil.server.call('generate_questions', user_prompts)
     self.response_box.text = responses
-    anvil.server.call('getmyprompts', {
-      "user_prompts": user_prompts,
-      "responses": responses
-    })
     self.prompt_panel.items = app_tables.responselog.search()
     pass
 
@@ -52,17 +52,14 @@ class ai_chat(ai_chatTemplate):
   
   @handle("done_button", "click")
   def done_button_click(self, **event_args):
-    new_ref = {anvil.server.call('summarize_conversation', app_tables.responselog.search())}
+    summary_data = anvil.server.call('summarize_chat')
+    summary_content = chat_summary(summary_text=summary_data)
     save_clicked = alert(
-      content=chat_summary(),
+      content=summary_content,
       title="Confirm Responses",
       large=True,
       buttons=[("Save", True), ("Cancel", False)],
     )
 
-    # add to reference list
     if save_clicked:
-      anvil.server.call('add_ref', new_ref)
-      self.refresh_responses()
-
-    
+      anvil.server.call('add_ref', summary_data)

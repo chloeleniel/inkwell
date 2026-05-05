@@ -1,3 +1,17 @@
-components: []
-container: {type: ColumnPanel}
+components:
+- data_bindings:
+  - {code: 'self.item[''ref_title'']', property: text, writeback: false}
+  layout_properties: {grid_position: 'MCRORZ,ZQCJYO'}
+  name: ref_title
+  properties: {bold: true, role: headline}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''user_references'']', property: text, writeback: false}
+  layout_properties: {grid_position: 'UTHRPR,UZQDYW'}
+  name: user_references
+  properties: {bold: false, italic: false}
+  type: Label
+container:
+  data_bindings: []
+  type: ColumnPanel
 is_package: true
