@@ -1,3 +1,6 @@
+import anvil.google.auth, anvil.google.drive, anvil.google.mail
+from anvil.google.drive import app_files
+import anvil.users
 import anvil.secrets
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -20,11 +23,14 @@ def add_feedback(name, writing_mode, feedback):
 
 @anvil.server.callable
 def add_article(article_dict):
-  # create new article
-  app_tables.articles.add_row(
-    created=datetime.now(),
-    **article_dict
-  )
+  current_user = anvil.users.get_user()
+
+  if current_user is not None:
+    app_tables.articles.add_row(
+      created=datetime.now(),
+      user=current_user,
+      **article_dict
+    )
 
 @anvil.server.callable
 def get_articles():

@@ -15,7 +15,21 @@ components:
   type: Label
 - layout_properties: {grid_position: 'KJAIBD,QJQCON'}
   name: label_1
-  properties: {align: center, italic: true, text: 'AI that works with you, not for you.'}
+  properties: {align: center, italic: true, text: 'AI that writes with you, not for you.'}
   type: Label
+- layout_properties: {grid_position: 'HKSTUL,HCRTMN'}
+  name: label_2
+  properties:
+    text: |
+      Inkwell was created as a response to the growing capabilities of AI. So many people don't know what to do with this technology, and there are two common responses: (1) stay away from AI completely, or (2) overly rely on AI. But what if there's a way to bridge those two responses? After all, technology is made to amplify, not replace human talent.
+
+      This is a site for writers to be able to brainstorm and write with AI, without writing any content for you. All the works you'll create with this site belongs solely to you; because you wrote everything! The AI tool is just something to help you get the ideas you're already thinking of onto the page.
+
+      Happy writing!
+  type: Label
+- layout_properties: {grid_position: 'QGZAFV,WNTHGI'}
+  name: sign_up
+  properties: {role: primary-color, text: sign up / log in}
+  type: Button
 container: {type: ColumnPanel}
 is_package: true

@@ -13,7 +13,7 @@ components:
     type: Label
   - layout_properties: {grid_position: 'OMPIRN,YBSMOM'}
     name: label_1
-    properties: {align: center, italic: true, text: 'AI that works with you, not for you.'}
+    properties: {align: center, italic: true, text: 'AI that writes with you, not for you.'}
     type: Label
   - layout_properties: {grid_position: 'PNAIZX,KPYERX'}
     name: label_2
