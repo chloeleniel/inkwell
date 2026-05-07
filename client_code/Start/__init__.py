@@ -16,3 +16,9 @@ class Start(StartTemplate):
   @handle("sign_up", "click")
   def sign_up_click(self, **event_args):
     anvil.users.login_with_form()
+
+    if anvil.users.get_user():
+      open_form("Form1")
+    else:
+      self.form_show()
+    pass

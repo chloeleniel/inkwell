@@ -13,13 +13,30 @@ import requests
 
 @anvil.server.callable
 def add_feedback(name, writing_mode, feedback):
-  # receive feedback
   app_tables.feedback.add_row(
     name=name, 
     writing_mode=writing_mode, 
     feedback=feedback, 
     created=datetime.now()
   )
+
+def verify_user_articles(article):
+  current_user = anvil.users.get_user()
+  if current_user is not None:
+    if app_tables.articles.has_row(article) and article['user'] == current_user:
+      return True
+
+def verify_user_chat(responses):
+  current_user = anvil.users.get_user()
+  if current_user is not None:
+    if app_tables.responselog.has_row(responses) and responses['user'] == current_user:
+      return True
+
+def verify_user_ref(user_references):
+  current_user = anvil.users.get_user()
+  if current_user is not None:
+    if app_tables.articles.has_row(user_references) and user_references['user'] == current_user:
+      return True
 
 @anvil.server.callable
 def add_article(article_dict):
@@ -34,27 +51,30 @@ def add_article(article_dict):
 
 @anvil.server.callable
 def get_articles():
-  return app_tables.articles.search(
-    # display articles in a list
-    tables.order_by("created", ascending=False)
-  )
+  current_user = anvil.users.get_user()
+
+  if current_user is not None:
+    return app_tables.articles.search(
+     tables.order_by("created", ascending=False),
+      user=current_user
+    )
 
 @anvil.server.callable
 def update_article(article, article_dict):
-  # check that the article given is really a row in the ‘articles’ table
-  if app_tables.articles.has_row(article):
-    article_dict['updated'] = datetime.now()
-    article.update(**article_dict)
-  else:
-    raise Exception("Article does not exist")
 
+  if verify_user_articles(article):
+      article_dict['updated'] = datetime.now()
+      article.update(**article_dict)
+  else:
+    raise Exception("Article does not exist or does not belong to this user")
+
+  
 @anvil.server.callable
 def delete_article(article):
-  # check that the article being deleted exists in the Data Table
-  if app_tables.articles.has_row(article):
+  if verify_user_articles(article):
     article.delete()
   else:
-    raise Exception("Article does not exist")
+    raise Exception("Article does not exist or does not belong to this user")
 
 @anvil.server.callable
 def generate_questions(input):
@@ -110,10 +130,13 @@ def summarize_chat():
   
 @anvil.server.callable
 def add_ref(new_ref):
-  app_tables.references.add_row(
-    user_references=new_ref,
-    created=datetime.now()
-  )
+  if verify_user_ref(user_references):
+    app_tables.references.add_row(
+      user_references=new_ref,
+      created=datetime.now()
+    )
+  else:
+    raise Exception("Article does not exist or does not belong to this user")
 
 @anvil.server.callable
 def show_ref():
