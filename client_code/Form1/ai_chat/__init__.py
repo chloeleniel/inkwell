@@ -41,10 +41,11 @@ class ai_chat(ai_chatTemplate):
 
   @handle("submit_button", "click")
   def submit_button_click(self, **event_args):
+    current_user = anvil.users.get_user()
     user_prompts = self.user_prompts.text
     responses = anvil.server.call('generate_questions', user_prompts)
     self.response_box.text = responses
-    self.prompt_panel.items = app_tables.responselog.search()
+    self.prompt_panel.items = app_tables.responselog.search(user=current_user)
     pass
 
   @handle('clear_button', 'click')

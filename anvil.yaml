@@ -122,6 +122,14 @@ db_schema:
       client_hidden: false
       name: confirmed_email
       type: bool
+    - admin_ui: {}
+      client_hidden: null
+      name: email_confirmation_key
+      type: string
+    - admin_ui: {}
+      client_hidden: null
+      name: signed_up
+      type: datetime
     indexes: []
     server: full
     title: users
