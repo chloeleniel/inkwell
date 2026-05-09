@@ -140,7 +140,7 @@ def add_ref(new_ref):
     app_tables.references.add_row(
     user_references=new_ref,
     created=datetime.now(),
-    user=current+user
+    user=current_user
     )
   else:
     raise Exception("Article does not exist or does not belong to this user")
