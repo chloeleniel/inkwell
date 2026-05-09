@@ -41,7 +41,8 @@ components:
     properties: {}
     type: ColumnPanel
   - components:
-    - name: prompt_panel
+    - layout_properties: {}
+      name: prompt_panel
       properties: {item_template: Form1.ai_chat.RowTemplate1}
       type: RepeatingPanel
     data_bindings: []
