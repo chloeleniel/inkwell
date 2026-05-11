@@ -114,6 +114,8 @@ def generate_questions(input):
     )
   
     app_tables.responselog.add_row(
+      user_prompts=input,
+      responses=response,
       context=context,
       ip=ipaddress
     )
