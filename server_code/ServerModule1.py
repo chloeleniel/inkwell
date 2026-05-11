@@ -78,7 +78,7 @@ def delete_article(article):
 
 @anvil.server.callable
 def generate_questions(input):
-  current_user = anvil.users.get_user()['email']
+  current_user = anvil.users.get_user()
   if anvil.server.context.client.type is None:
     context = "Obfuscated"
   else:
@@ -101,7 +101,7 @@ def generate_questions(input):
   
   Again, your role is to ask probing questions and encourage the writer to think."""
   
-    chat_history = app_tables.responselog.search()
+    chat_history = app_tables.responselog.search(user=current_user)
     context_string = ""
     for row in chat_history:
       context_string += f"User: {row['user_prompts']}\nAssistant: {row['responses']}\n"
@@ -114,8 +114,9 @@ def generate_questions(input):
     )
   
     app_tables.responselog.add_row(
+      user=current_user,
       user_prompts=input,
-      responses=response,
+      responses=response.text,
       context=context,
       ip=ipaddress
     )
@@ -126,7 +127,7 @@ def generate_questions(input):
 
 @anvil.server.callable
 def summarize_chat():
-  current_user = anvil.users.get_user()['email']
+  current_user = anvil.users.get_user()
   logs = app_tables.responselog.search(user=current_user)
   if not logs:
     return "No history to summarize."
@@ -177,7 +178,7 @@ def add_ref(new_ref):
 
 @anvil.server.callable
 def show_ref():
-  current_user = anvil.users.get_user()['email']
+  current_user = anvil.users.get_user()
   items = app_tables.references.search(
     user=current_user
     )
