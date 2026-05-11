@@ -87,10 +87,6 @@ db_schema:
       client_hidden: false
       name: responses
       type: simpleObject
-    - admin_ui: {width: 200}
-      client_hidden: false
-      name: ip
-      type: string
     - admin_ui: {order: 4, width: 200}
       client_hidden: false
       name: user

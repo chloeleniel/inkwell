@@ -83,10 +83,6 @@ def generate_questions(input):
     context = "Obfuscated"
   else:
     context = anvil.server.context.client.type
-  if anvil.server.context.client.ip is None:
-    ipaddress = "Obfuscated"
-  else:
-    ipaddress = anvil.server.context.client.ip
 
   if current_user:
     client = genai.Client(api_key=anvil.secrets.get_secret('gemini_api_key'))
@@ -117,9 +113,7 @@ def generate_questions(input):
       user=current_user,
       user_prompts=input,
       responses=response.text,
-      context=context,
-      ip=ipaddress
-    )
+      context=context)
     return response.text
   else:
     return []
@@ -145,18 +139,12 @@ def summarize_chat():
     context = "Obfuscated"
   else:
     context = anvil.server.context.client.type
-  if anvil.server.context.client.ip is None:
-    ipaddress = "Obfuscated"
-  else:
-    ipaddress = anvil.server.context.client.ip
-
 
   app_tables.references.add_row(
     user_references=summary,
     created=datetime.now(),
     user=current_user,
-    context=context,
-    ip=ipaddress)
+    context=context)
 
   for row in logs:
     row.delete()
