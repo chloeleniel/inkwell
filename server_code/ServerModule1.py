@@ -78,7 +78,16 @@ def delete_article(article):
 
 @anvil.server.callable
 def generate_questions(input):
-  current_user = anvil.users.get_user()
+  current_user = anvil.users.get_user()['email']
+  if anvil.server.context.client.type is None:
+    context = "Obfuscated"
+  else:
+    context = anvil.server.context.client.type
+  if anvil.server.context.client.ip is None:
+    ipaddress = "Obfuscated"
+  else:
+    ipaddress = anvil.server.context.client.ip
+
   if current_user:
     client = genai.Client(api_key=anvil.secrets.get_secret('gemini_api_key'))
   
@@ -104,7 +113,11 @@ def generate_questions(input):
       contents=full_prompt
     )
   
-    app_tables.responselog.add_row(user_prompts=input, responses=response.text, user=current_user)
+    app_tables.responselog.add_row(
+      user=current_user,
+      context=context,
+      ip=ipaddress
+    )
     return response.text
   else:
     return []
@@ -112,7 +125,7 @@ def generate_questions(input):
 
 @anvil.server.callable
 def summarize_chat():
-  current_user = anvil.users.get_user()
+  current_user = anvil.users.get_user()['email']
   logs = app_tables.responselog.search(user=current_user)
   if not logs:
     return "No history to summarize."
@@ -125,7 +138,23 @@ def summarize_chat():
     contents=f"Summarize the key story ideas and decisions from this chat into bullet points:\n{history_text}"
   )
   summary = summary_response.text
-  app_tables.references.add_row(user_references=summary, created=datetime.now(),user=current_user)
+
+  if anvil.server.context.client.type is None:
+    context = "Obfuscated"
+  else:
+    context = anvil.server.context.client.type
+  if anvil.server.context.client.ip is None:
+    ipaddress = "Obfuscated"
+  else:
+    ipaddress = anvil.server.context.client.ip
+
+
+  app_tables.references.add_row(
+    user_references=summary,
+    created=datetime.now(),
+    user=current_user,
+    context=context,
+    ip=ipaddress)
 
   for row in logs:
     row.delete()
@@ -147,14 +176,8 @@ def add_ref(new_ref):
 
 @anvil.server.callable
 def show_ref():
-  current_user = anvil.users.get_user()
-
-  if current_user is not None:
-    return app_tables.references.search(
-    tables.order_by("created", ascending=False),
+  current_user = anvil.users.get_user()['email']
+  items = app_tables.references.search(
     user=current_user
     )
-
-
-
-
+  return items

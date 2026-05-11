@@ -67,8 +67,7 @@ db_schema:
     - admin_ui: {width: 200}
       client_hidden: false
       name: user
-      target: users
-      type: link_single
+      type: string
     indexes: []
     server: full
     title: references
@@ -90,8 +89,11 @@ db_schema:
     - admin_ui: {width: 200}
       client_hidden: false
       name: user
-      target: users
-      type: link_single
+      type: string
+    - admin_ui: {width: 200}
+      client_hidden: false
+      name: ip
+      type: string
     indexes: []
     server: full
     title: responselog

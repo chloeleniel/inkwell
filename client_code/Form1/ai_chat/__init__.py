@@ -45,7 +45,7 @@ class ai_chat(ai_chatTemplate):
     user_prompts = self.user_prompts.text
     responses = anvil.server.call('generate_questions', user_prompts)
     self.response_box.text = responses
-    self.prompt_panel.items = app_tables.responselog.search(user=current_user)
+    self.prompt_panel.items = app_tables.responselog.search()
     pass
 
   @handle('clear_button', 'click')
