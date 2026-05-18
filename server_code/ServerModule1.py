@@ -165,6 +165,23 @@ def add_ref(new_ref):
     raise Exception("Article does not exist or does not belong to this user")
 
 @anvil.server.callable
+def update_ref(references, ref_dict):
+
+  if verify_user_ref():
+    ref_dict['updated'] = datetime.now()
+    references.update(**ref_dict)
+  else:
+    raise Exception("Article does not exist or does not belong to this user")
+
+
+@anvil.server.callable
+def delete_ref(article):
+  if verify_user_articles(article):
+    article.delete()
+  else:
+    raise Exception("Article does not exist or does not belong to this user")
+
+@anvil.server.callable
 def show_ref():
   current_user = anvil.users.get_user()
   items = app_tables.references.search(

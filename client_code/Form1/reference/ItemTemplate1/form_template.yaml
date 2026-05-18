@@ -1,20 +1,29 @@
 components:
 - components:
   - data_bindings:
-    - {code: 'self.item[''user_references'']', property: text, writeback: false}
-    layout_properties: {grid_position: 'GRUJJN,RAEEQE'}
-    name: user_references
-    properties: {bold: false, italic: false}
-    type: Label
-  - data_bindings:
     - {code: 'self.item[''ref_title'']', property: text, writeback: false}
-    layout_properties: {grid_position: 'GRUJJN,RAEEQE'}
+    layout_properties: {grid_position: 'GRUJJN,UFWZIX'}
     name: ref_title
     properties: {bold: true, role: headline}
     type: Label
+  - layout_properties: {grid_position: 'GRUJJN,FDDYQP'}
+    name: edit_article_button
+    properties: {icon: 'fa:pencil-square', role: secondary-color, text: ''}
+    type: Button
+  - event_bindings: {}
+    layout_properties: {grid_position: 'GRUJJN,KWGHAJ'}
+    name: delete_article_button
+    properties: {icon: 'fa:trash', role: secondary-color, text: ''}
+    type: Button
+  - data_bindings:
+    - {code: 'self.item[''user_references'']', property: text, writeback: false}
+    layout_properties: {grid_position: 'AYKNHQ,IEPXUC'}
+    name: user_references
+    properties: {bold: false, italic: false}
+    type: Label
   layout_properties: {grid_position: 'UIODFE,BDFKHH'}
   name: card_1
-  properties: {role: card}
+  properties: {col_widths: '{"UFWZIX":50,"FDDYQP":5,"KWGHAJ":5}', role: card}
   type: ColumnPanel
 container:
   data_bindings: []
