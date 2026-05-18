@@ -7,12 +7,12 @@ components:
     properties: {bold: true, role: headline}
     type: Label
   - layout_properties: {grid_position: 'GRUJJN,FDDYQP'}
-    name: edit_article_button
+    name: edit_ref_button
     properties: {icon: 'fa:pencil-square', role: secondary-color, text: ''}
     type: Button
   - event_bindings: {}
     layout_properties: {grid_position: 'GRUJJN,KWGHAJ'}
-    name: delete_article_button
+    name: delete_ref_button
     properties: {icon: 'fa:trash', role: secondary-color, text: ''}
     type: Button
   - data_bindings:

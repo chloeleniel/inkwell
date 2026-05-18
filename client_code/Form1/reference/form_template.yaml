@@ -7,7 +7,7 @@ components:
   - data_bindings: []
     layout_properties: {grid_position: 'LAYMFR,SIOZNM'}
     name: user_references
-    properties: {item_template: Form1.reference.ItemTemplate1}
+    properties: {item_template: Form1.reference.ref_view}
     type: RepeatingPanel
   layout_properties: {slot: default}
   name: content_panel
