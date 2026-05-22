@@ -39,14 +39,15 @@ def verify_user_ref(user_references):
       return True
 
 @anvil.server.callable
-def add_article(article_dict):
+def add_article():
   current_user = anvil.users.get_user()
 
   if current_user is not None:
-    app_tables.articles.add_row(
+    return app_tables.articles.add_row(
       created=datetime.now(),
       user=current_user,
-      **article_dict
+      title="",
+      content=""
     )
 
 @anvil.server.callable
@@ -61,7 +62,6 @@ def get_articles():
 
 @anvil.server.callable
 def update_article(article, article_dict):
-
   if verify_user_articles(article):
       article_dict['updated'] = datetime.now()
       article.update(**article_dict)

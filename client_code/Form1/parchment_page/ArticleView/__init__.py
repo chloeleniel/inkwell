@@ -16,18 +16,15 @@ class ArticleView(ArticleViewTemplate):
 
   @handle("edit_article_button", "click")
   def edit_article_button_click(self, **event_args):
-    article_copy = dict(self.item)
-    
-    save_clicked = alert(
-      content=ArticleEdit(item=article_copy),
-      title="Update Article",
+    current_article = self.item
+    alert(
+      content=ArticleEdit(item=current_article),
+      title="Edit Article",
       large=True,
-      buttons=[("Save", True), ("Cancel", False)]
+      buttons=[("Done", True)]
     )
 
-    if save_clicked:
-      anvil.server.call('update_article', self.item, article_copy)
-      self.refresh_data_bindings()
+    self.refresh_data_bindings()
 
   @handle("delete_article_button", "click")
   def delete_article_button_click(self, **event_args):

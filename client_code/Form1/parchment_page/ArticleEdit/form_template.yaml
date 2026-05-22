@@ -1,6 +1,10 @@
 components:
+- layout_properties: {grid_position: 'FNFHIT,ZEOAGP'}
+  name: save_status
+  properties: {}
+  type: Label
 - data_bindings:
-  - {code: 'self.item[''title'']', property: text, writeback: true}
+  - {code: 'self.item[''title'']', property: text, writeback: false}
   event_bindings: {}
   layout_properties: {grid_position: 'TICKLA,EADRXV SOGNUE,WOJUAI'}
   name: title_box
@@ -11,11 +15,15 @@ components:
   properties: {bold: true, text: 'Content:'}
   type: Label
 - data_bindings:
-  - {code: 'self.item[''content'']', property: text, writeback: true}
+  - {code: 'self.item[''content'']', property: text, writeback: false}
   layout_properties: {grid_position: 'TICKLA,EADRXV PKPQNS,ZEDZUK'}
   name: content_box
   properties: {auto_expand: true, enabled: true, height: 362.3999938964844, placeholder: Start writing...}
   type: TextArea
+- layout_properties: {grid_position: 'TICKLA,EADRXV SQUQUH,OFUGBS'}
+  name: timer_1
+  properties: {interval: 2}
+  type: Timer
 container:
   properties: {col_widths: '{"IWACJM":20,"EADRXV":40}'}
   type: ColumnPanel

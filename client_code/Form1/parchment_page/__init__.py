@@ -40,17 +40,14 @@ class parchment_page(parchment_pageTemplate):
 
     @handle("add_article", "click")
     def add_article_button_click(self, **event_args):
-      new_article = {}
-      save_clicked = alert(
+      new_article = anvil.server.call('add_article')
+      alert(
         content=ArticleEdit(item=new_article),
         title="Add Article",
         large=True,
-        buttons=[("Save", True), ("Cancel", False)],
+        buttons=[("Done", True)],
       )
-      
-      if save_clicked:
-        anvil.server.call('add_article', new_article)
-        self.refresh_articles()
+      self.refresh_articles()
   
     @handle('articles_panel', 'x-delete-article')
     def delete_article(self, article, **event_args):
