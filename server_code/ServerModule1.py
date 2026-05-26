@@ -105,7 +105,7 @@ def generate_questions(input):
     full_prompt = f"{system_prompt}\n\nPast Conversation:\n{context_string}\n\nNew User Input: {input}"
   
     response = client.models.generate_content(
-      model = "gemini-3.1-flash-lite-preview",
+      model = "gemini-3.1-flash-lite",
       contents=full_prompt
     )
   
