@@ -79,10 +79,6 @@ def delete_article(article):
 @anvil.server.callable
 def generate_questions(input):
   current_user = anvil.users.get_user()
-  if anvil.server.context.client.type is None:
-    context = "Obfuscated"
-  else:
-    context = anvil.server.context.client.type
 
   if current_user:
     client = genai.Client(api_key=anvil.secrets.get_secret('gemini_api_key'))
@@ -112,8 +108,7 @@ def generate_questions(input):
     app_tables.responselog.add_row(
       user=current_user,
       user_prompts=input,
-      responses=response.text,
-      context=context)
+      responses=response.text)
     return response.text
   else:
     return []
@@ -135,16 +130,10 @@ def summarize_chat():
   )
   summary = summary_response.text
 
-  if anvil.server.context.client.type is None:
-    context = "Obfuscated"
-  else:
-    context = anvil.server.context.client.type
-
   app_tables.references.add_row(
     user_references=summary,
     created=datetime.now(),
-    user=current_user,
-    context=context)
+    user=current_user)
 
   for row in logs:
     row.delete()

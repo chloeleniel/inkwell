@@ -81,10 +81,6 @@ db_schema:
       type: string
     - admin_ui: {width: 200}
       client_hidden: false
-      name: context
-      type: string
-    - admin_ui: {width: 200}
-      client_hidden: false
       name: responses
       type: simpleObject
     - admin_ui: {order: 4, width: 200}
