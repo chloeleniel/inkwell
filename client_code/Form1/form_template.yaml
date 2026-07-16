@@ -4,6 +4,10 @@ components:
     name: image_1
     properties: {height: 140.60000610351562, source: _/theme/G12 Capstone Project Defense (3).png}
     type: Image
+  - layout_properties: {grid_position: 'HYFTKG,SXUALH'}
+    name: youtube_video_1
+    properties: {height: 411.20001220703125, youtube_id: 6kJCpvzts2w}
+    type: YouTubeVideo
   - layout_properties: {grid_position: 'PNAIZX,KPYERX'}
     name: label_2
     properties:
